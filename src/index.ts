@@ -1,3 +1,14 @@
+const iter = makeRangeIterator(1, 100, 3)
+
+let result = iter.next()
+
+while (!result.done) {
+  console.log(result.value)
+  result = iter.next()
+}
+
+console.log(`Iterated over sequence of size ${result.value}`)
+
 function makeRangeIterator(start = 0, end = Infinity, step = 3) {
   let nextIndex = start
   let iterationCount = 0
@@ -14,5 +25,6 @@ function makeRangeIterator(start = 0, end = Infinity, step = 3) {
       return { value: iterationCount, done: true }
     },
   }
+
   return rangeIterator
 }
